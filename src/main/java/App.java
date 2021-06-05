@@ -11,21 +11,18 @@ import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
-@ComponentScan(basePackageClasses = {DumbService.class,
-        ApplicationConfig.class,
-        DumbComponent.class,
-        CustomerRepository.class})
+@ComponentScan(basePackages = "bs")
 public class App {
 
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(App.class);
-        CustomerRepository customerRepository = context.getBean(CustomerRepository.class);
-        for (Customer customer : customerRepository.findAll()){
-            System.out.println(customer);
-        }
-        RequestService requestService = context.getBean(RequestService.class);
-        requestService.printRequestInfo();
-        System.out.println(requestService.calcPrice());
+//        CustomerRepository customerRepository = context.getBean(CustomerRepository.class);
+//        for (Customer customer : customerRepository.findAll()){
+//            System.out.println(customer);
+//        }
+//        RequestService requestService = context.getBean(RequestService.class);
+//        requestService.printRequestInfo();
+//        System.out.println(requestService.calcPrice());
 
     }
 }

@@ -1,21 +1,48 @@
 package bs.model;
 
-import java.util.UUID;
+import javax.persistence.*;
+import java.util.Objects;
 
+@Entity
+@Table(name = "request")
 public class Request {
-    UUID uuid = UUID.randomUUID();
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "service")
     private String service;
-    private Day day;
+
+    @Column(name = "day")
+    private String day;
+
+    @Column(name = "Time")
     private int time;
+
+    @Column(name = "length")
     private int length;
+
+    @Column(name = "price")
     private int price;
+
+    @Column(name = "type")
     private boolean type;
+
+    @OneToOne(mappedBy = "request")
     private Customer customer;
+
+    //private Day day;
+    //private int time;
+    //private int length;
+    //private int price;
+    //private boolean type;
+
 
     public Request() {
     }
 
-    public Request(String service,Day day, int time, int length, int price, boolean type, Customer customer) {
+    public Request(String service, String day, int time, int length, int price, boolean type, Customer customer) {
         this.service = service;
         this.day = day;
         this.time = time;
@@ -23,14 +50,6 @@ public class Request {
         this.price = price;
         this.type = type;
         this.customer = customer;
-    }
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
     }
 
     public String getService() {
@@ -41,11 +60,11 @@ public class Request {
         this.service = service;
     }
 
-    public Day getDay() {
+    public String getDay() {
         return day;
     }
 
-    public void setDay(Day day) {
+    public void setDay(String day) {
         this.day = day;
     }
 
@@ -92,7 +111,6 @@ public class Request {
     @Override
     public String toString() {
         return "Request{" +
-                "uuid=" + uuid + '\n' +
                 ", service='" + service + '\'' + '\n' +
                 ", day=" + day + '\n' +
                 ", time=" + time + '\n' +
@@ -100,6 +118,6 @@ public class Request {
                 ", price=" + price + '\n' +
                 ", type=" + type + '\n' +
                 ", customer=" + customer.getName() + '\n' +
-                '}' + '\n' ;
+                '}' + '\n';
     }
 }

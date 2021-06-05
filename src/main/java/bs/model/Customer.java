@@ -1,14 +1,37 @@
 package bs.model;
 
+import javax.persistence.*;
 import java.util.UUID;
 
+@Entity
+@Table(name = "customer")
 public class Customer {
 
-    private UUID uid = UUID.randomUUID();
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "surname")
     private String surname;
+
+    @Column(name = "phoneNumber")
     private String phoneNumber;
 
+    @OneToOne(mappedBy = "customer")
+    private Request request;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "hall_id")
+    private Hall hall;
+
+//    private UUID uid = UUID.randomUUID();
+//    private String name;
+//    private String surname;
+//    private String phoneNumber;
+//
     public Customer() {
     }
 
@@ -17,15 +40,15 @@ public class Customer {
         this.surname = surname;
         this.phoneNumber = phoneNumber;
     }
-
-    public UUID getUid() {
-        return uid;
-    }
-
-    public void setUid(UUID uid) {
-        this.uid = uid;
-    }
-
+//
+//    public UUID getUid() {
+//        return uid;
+//    }
+//
+//    public void setUid(UUID uid) {
+//        this.uid = uid;
+//    }
+//
     public String getName() {
         return name;
     }

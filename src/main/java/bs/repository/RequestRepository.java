@@ -1,17 +1,16 @@
 package bs.repository;
 
 import bs.model.Request;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.UUID;
+import java.util.Optional;
 
-public interface RequestRepository {
+@Repository
+public interface RequestRepository extends CrudRepository<Request, Integer> {
 
     List<Request> findAll();
-
-    List<Request> findByDay();
-
-    List<Request> findByCustomer();
-
-    Request findById(UUID uid);
+    /*Branch getByIndex(int index);*/
+    Optional<Request> findByName(String name);
 }

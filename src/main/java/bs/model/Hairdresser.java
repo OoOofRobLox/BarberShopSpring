@@ -1,29 +1,41 @@
 package bs.model;
 
-import java.util.UUID;
+import javax.persistence.Entity;
+import javax.persistence.*;
 
+
+@Entity
+@Table(name = "hairdresser")
 public class Hairdresser {
-    private UUID uuid;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "surname")
     private String surname;
+
+    @Column(name = "salary")
     private int salary;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "hall_id")
+    private Hall hall;
+
+//    private String name;
+//    private String surname;
+//    private int salary;
 
     public Hairdresser() {
     }
 
-    public Hairdresser(String name, String surname, int salary, UUID uuid) {
+    public Hairdresser(String name, String surname, int salary) {
         this.name = name;
         this.surname = surname;
         this.salary = salary;
-        this.uuid = uuid;
-    }
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
     }
 
     public String getName() {
