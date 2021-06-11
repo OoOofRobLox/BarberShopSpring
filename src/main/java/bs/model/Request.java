@@ -1,7 +1,6 @@
 package bs.model;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "request")
@@ -29,15 +28,9 @@ public class Request {
     @Column(name = "type")
     private boolean type;
 
-    @OneToOne(mappedBy = "request")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id")
     private Customer customer;
-
-    //private Day day;
-    //private int time;
-    //private int length;
-    //private int price;
-    //private boolean type;
-
 
     public Request() {
     }

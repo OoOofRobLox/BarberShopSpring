@@ -1,10 +1,7 @@
 package bs.model;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.UUID;
 
 @Entity
 @Table(name = "barbershop")
@@ -14,10 +11,11 @@ public class BarberShop {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "barbershop")
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Hall> halls;
 
-    @OneToOne(mappedBy = "barbershop")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "schedule_id")
     private Schedule schedule;
 
 

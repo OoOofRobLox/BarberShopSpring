@@ -1,6 +1,5 @@
 package bs.model;
 
-import javax.persistence.Entity;
 import javax.persistence.*;
 
 
@@ -24,10 +23,6 @@ public class Hairdresser {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "hall_id")
     private Hall hall;
-
-//    private String name;
-//    private String surname;
-//    private int salary;
 
     public Hairdresser() {
     }
@@ -60,5 +55,13 @@ public class Hairdresser {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    public Hall getHall() {
+        return hall;
+    }
+
+    public void setHall(Hall hall) {
+        this.hall = hall;
     }
 }

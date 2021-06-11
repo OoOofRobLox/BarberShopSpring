@@ -11,7 +11,8 @@ public class Schedule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne(mappedBy = "schedule")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "barberShop_id")
     private BarberShop barberShop;
 
     @Column(name = "day1")

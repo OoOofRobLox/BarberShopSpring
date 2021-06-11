@@ -1,6 +1,6 @@
 package bs.config;
 
-import bs.repository.CustomerRepository;
+import bs.repository.DumbRepository;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +18,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackageClasses = {CustomerRepository.class})
+@EnableJpaRepositories(basePackageClasses = {DumbRepository.class})
 public class ApplicationConfig {
 
     @Bean
@@ -59,17 +59,18 @@ public class ApplicationConfig {
         hibernateProperties.setProperty(
                 "hibernate.hbm2ddl.auto", "none");
         //generate tables from entities
-        hibernateProperties.setProperty(
-                "hibernate.hbm2ddl.auto", "create-drop");
+        /*hibernateProperties.setProperty(
+                "hibernate.hbm2ddl.auto", "create-drop");*/
         hibernateProperties.setProperty(
                 "hibernate.dialect", "org.hibernate.dialect.PostgreSQL94Dialect");
         hibernateProperties.setProperty(
-                "hibernate.show_sql", "false");
+                "hibernate.show_sql", "true");
         hibernateProperties.setProperty(
                 "hibernate.format_sql", "true");
         hibernateProperties.setProperty(
                 "hibernate..use_sql_comments", "true");
         hibernateProperties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
+        hibernateProperties.put("hibernate.default_schema", "public");
         return hibernateProperties;
     }
 

@@ -1,12 +1,12 @@
 package bs.repository;
 
 import bs.model.Schedule;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
-import java.util.UUID;
+import java.util.Optional;
 
-public interface ScheduleRepository {
-    Schedule getById (Integer id);
-    List<Schedule> getAll();
-    void deleteById (UUID uuid);
+public interface ScheduleRepository extends JpaRepository<Schedule, Integer> {
+    List<Schedule> findAll();
+    Optional<Schedule> findById(Integer id);
 }

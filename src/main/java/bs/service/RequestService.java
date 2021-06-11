@@ -1,14 +1,14 @@
-package bs.service;
-
+//package bs.service;
+//
 import bs.component.DatePrinter;
 import bs.model.Request;
-import bs.repository.RequestRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-@Service
-public class RequestService {
-
+//import bs.repository.RequestRepository;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Service;
+//
+//@Service
+//public class RequestService {
+//
 //    private DatePrinter datePrinter;
 //
 //    @Autowired
@@ -31,6 +31,4 @@ public class RequestService {
 //        }
 //        return sum;
 //    }
-
-
-}
+//}

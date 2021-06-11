@@ -1,17 +1,17 @@
-package bs.repository;
-
-import bs.model.Customer;
-import bs.model.Day;
-import bs.model.Request;
-import org.springframework.stereotype.Repository;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
-
+//package bs.repository;
+//
+//import bs.model.Customer;
+//import bs.model.Day;
+//import bs.model.Request;
+//import org.springframework.stereotype.Repository;
+//
+//import java.util.Arrays;
+//import java.util.List;
+//import java.util.UUID;
+//
 //@Repository
 //public class RequestRepositoryImpl implements RequestRepository{
-
+//
 //    private List<Customer> customers = Arrays.asList(
 //            new Customer("a","a","1"),
 //            new Customer("b","b","2"),

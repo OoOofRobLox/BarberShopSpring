@@ -1,7 +1,6 @@
 package bs.model;
 
 import javax.persistence.*;
-import java.util.UUID;
 
 @Entity
 @Table(name = "customer")
@@ -20,18 +19,14 @@ public class Customer {
     @Column(name = "phoneNumber")
     private String phoneNumber;
 
-    @OneToOne(mappedBy = "customer")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "request_id")
     private Request request;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "hall_id")
     private Hall hall;
 
-//    private UUID uid = UUID.randomUUID();
-//    private String name;
-//    private String surname;
-//    private String phoneNumber;
-//
     public Customer() {
     }
 
@@ -40,15 +35,7 @@ public class Customer {
         this.surname = surname;
         this.phoneNumber = phoneNumber;
     }
-//
-//    public UUID getUid() {
-//        return uid;
-//    }
-//
-//    public void setUid(UUID uid) {
-//        this.uid = uid;
-//    }
-//
+
     public String getName() {
         return name;
     }
@@ -71,6 +58,22 @@ public class Customer {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public Request getRequest() {
+        return request;
+    }
+
+    public void setRequest(Request request) {
+        this.request = request;
+    }
+
+    public Hall getHall() {
+        return hall;
+    }
+
+    public void setHall(Hall hall) {
+        this.hall = hall;
     }
 
     @Override

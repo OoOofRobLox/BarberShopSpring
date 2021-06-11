@@ -1,15 +1,15 @@
 package bs.repository;
 
 import bs.model.Customer;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.UUID;
+import java.util.Optional;
 
-public interface CustomerRepository {
-
+@Repository
+public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     List<Customer> findAll();
-
     List<Customer> findByName(String name);
-
-    Customer findById(UUID uid);
+    Optional<Customer> findById(Integer id);
 }

@@ -2,8 +2,6 @@ package bs.model;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
-import java.util.UUID;
 
 @Entity
 @Table(name = "hall")
@@ -16,7 +14,7 @@ public class Hall {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "hall")
     private List<Hairdresser> hairdressers;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "hall")
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Customer> customers;
 
     @ManyToOne(fetch = FetchType.LAZY)
